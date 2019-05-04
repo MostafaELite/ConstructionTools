@@ -52,6 +52,12 @@ This Project Consists of Two Parts : <br/>
   <td>IoC / DI</td>
   <td>Achived Via Microsoft.Extensions.DependencyInjection</td>
 </tr>
+
+  <tr>
+  <td>Logging</td>
+  <td>Achived Via Microsoft.Extensions.ILogger in the checkout , since it's not a real porject only one time is sufficient as a POC</td>
+</tr>
+
   <tr>
   <td>Decent-looking UI</td>
   <td>it's not the best but it's not bad at all</td>
@@ -61,12 +67,15 @@ This Project Consists of Two Parts : <br/>
   <td>Cached the index page items , ofcourse can't cach fees :)</td>
 </tr>
   
-    <tr>
+<tr>
   <td>Class and interaction diagrams</td>
   <td>Create a Class Diagram for Fee Calculators , didn't have any tools to create interaction diagrams</td>
 </tr>
 
 </table>
+<hr/>
 
+<h2>How To Run </h2>
+<p>just click the start button in visual studio , it should start two projects , the frontend web app on the landing page Index.Html and the Api project </p>
 
 
