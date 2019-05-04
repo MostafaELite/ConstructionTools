@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html ng-app="ConstructionTools">
+<head>
+    <meta charset="utf-8" />
+    <title>{{indexResources.pageTitle}}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link href="Styles/Index.css" rel="stylesheet" />
+    <link href="Styles/TableStyle.css" rel="stylesheet" />
+    <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+</head>
+
+
+
+<body ng-controller="indexController">
+    <div ng-show="loading" class="loader"></div>
+    <div ng-hide="loading">
+        <header>
+            <a class="header-Item" href="Index.html">{{indexResources.index}}</a>
+            <span class="text-white">|</span>
+            <a class="header-Item" href="ShoppingCart.html">{{indexResources.shoppingCart}} </a>
+
+        </header>
+        <div class="table-title">
+
+        </div>
+        <table class="table-fill">
+            <thead>
+                <tr>
+                    <th class="text-left">{{indexResources.name}}</th>
+                    <th class="text-left"></th>
+                </tr>
+            </thead>
+            <tbody class="table-hover">
+                <tr ng-repeat="tool in allTools">
+                    <td class="text-left">{{tool.toolName}}</td>
+                    <td><button class="btn btn-success" ng-click="rent(tool.toolId)"><i class="icon-plus-sign"></i> {{indexResources.rent}}</button></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <style>
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="Scripts/App.js"></script>
+    <script src="Scripts/IndexController.js"></script>
+    <script src="Resources/IndexResources.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+            crossorigin="anonymous"></script>
+    <script src="Resources/Urls.js"></script>
+
+</body>
+
+</html>

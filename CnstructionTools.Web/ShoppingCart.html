@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html ng-app="ConstructionTools">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="Styles/ShoppingCart.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body ng-controller="shoppingCartController">
+    <header>
+        <a class="header-Item" href="Index.html">{{shoppingCartResources.index}}</a>
+        <span class="text-white">|</span>
+        <a class="header-Item" href="ShoppingCart.html">{{shoppingCartResources.shoppingCart}}</a>
+    </header>
+
+    <div>
+        <div ng-show="loading" class="loader"></div>
+        <div ng-show="shoppingCartItems.length < 1"> <div class="card bg-danger"><h3 class="padding-1 text-center text-white">No Data Found</h3> </div></div>
+        <div ng-hide="loading || shoppingCartItems.length < 1">
+
+            <div class="bg-primary musta-well">
+                <h2 class="neon musta-h"><i class="fas fa-cart-plus"></i> {{shoppingCartResources.shoppingCartHeading}}</h2>
+                <button class="btn btn-success right-float" ng-click="checkout()">{{shoppingCartResources.checkOutButtonText}}</button>
+            </div>
+
+            <div class="card bg-warning">
+                <h4 class="text-center text-white musta-center"> Total sum of your items is : {{sum }} Euros</h4>
+            </div>
+
+            <div ng-repeat="item in shoppingCartItems" class="card text-white bg-dark">
+                <div class="card-header">
+                    {{item.tool.toolName}}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{shoppingCartResources.costOfRentingLabel}} {{item.numberOfRentingDays}} days</h5>
+                    <p class="card-text"> {{item.cost}} Euros</p>
+                    <button ng-click="alert(`Not Implemented , it's a call to an Api action anyway :P `)" class="btn btn-danger">{{shoppingCartResources.remove}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="Resources/ShoppingCartResources.js"></script>
+    <script src="Resources/Urls.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="Scripts/App.js"></script>
+    <script src="Scripts/ShoppingCartController.js"></script>
+</body>
+</html>

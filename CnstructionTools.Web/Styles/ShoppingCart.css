@@ -1,0 +1,102 @@
+﻿@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
+
+body {
+    background-color: #3e94ec;
+    font-family: "Roboto", helvetica, arial, sans-serif !important;
+    font-size: 16px;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+    margin: 0;
+    
+}
+
+header {
+    background-color: black;
+    height: 100px;
+}
+
+
+.musta-well {
+    width: 80%;
+    margin: 1% auto;
+    border-radius: 25px;
+    
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+
+
+.fa {
+    font-size: 30px;
+    color: white;
+}
+
+h2 {
+    font-size: 36px;
+    margin: 0 0 16px;
+}
+
+p {
+    margin: 0 0 16px;
+}
+
+
+.card {
+    width:60% !important;
+    margin: 2% auto;
+}
+h2 {
+    margin: 2%;
+    color: white;
+}
+
+.neon {
+    color: #D0F8FF;
+    text-shadow: 0 0 5px #A5F1FF, 0 0 10px #A5F1FF,
+                 0 0 20px #A5F1FF, 0 0 30px #A5F1FF,
+                 0 0 40px #A5F1FF;
+}
+
+.musta-h {
+    left: 10%;
+    width: 25%;
+    display: inline-block;
+    padding: 1%;
+    border-radius: 25px !important;
+    
+}
+
+.right-float {
+    float: right;
+    margin: 1%;
+    margin-top: 3%;
+    vertical-align: center;
+}
+
+.musta-center {
+    padding: 1%;
+    text-align: center;                
+}
+
+
+.header-Item {
+    color: white;
+    padding: 1%;
+    font-size: 200%;
+    margin: 0 2%;
+    display: inline-block;
+}
+
+header {
+    padding-left: 5%;
+}
+
+.padding-1 {
+    padding: 1%;
+}
