@@ -63,7 +63,7 @@ This Project Consists of Two Parts : <br/>
   
     <tr>
   <td>Class and interaction diagrams</td>
-  <td></td>
+  <td>Create a Class Diagram for Fee Calculators , didn't have any tools to create interaction diagrams</td>
 </tr>
 
 </table>
