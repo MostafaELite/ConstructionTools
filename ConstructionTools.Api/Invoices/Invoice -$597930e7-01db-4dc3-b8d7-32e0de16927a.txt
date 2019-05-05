@@ -1,0 +1,17 @@
+                                                              Consturcion Tools Renting Invoice
+                                                           ------------------------------------------
+ 
+                       Item Name                            Renting Period In Days                         Cost In Euros                   
+            ----------------------------------------------------------------------------------------------------
+
+  
+    Caterpillar bulldozer                                                             1                                            160                      
+    Caterpillar bulldozer                                                             1                                            160                      
+    Caterpillar bulldozer                                                             1                                            160                      
+    Caterpillar bulldozer                                                             1                                            160                      
+    KamAZ truck                                                             2                                            220                      
+    Caterpillar bulldozer                                                             78                                            4780                      
+    Komatsu crane                                                             45                                            2800                      
+    Volvo steamroller                                                             76                                            3180                      
+Congratulations ! 
+You have earned 14 loyalty poinst , which you can do nothing at all with it
