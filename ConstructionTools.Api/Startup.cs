@@ -1,4 +1,5 @@
-﻿using ConstructionTools.DataAccess;
+﻿using System;
+using ConstructionTools.DataAccess;
 using ConstructionTools.Domain.Interfaces;
 using ConstructionTools.Repository.Abstract;
 using ConstructionTools.Repository.Concreate;
@@ -18,10 +19,10 @@ namespace ConstructionTools.Api
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
+        public Startup(IConfiguration configuration) =>
             Configuration = configuration;
-        }
+
+            
 
         public IConfiguration Configuration { get; }
 
@@ -34,6 +35,8 @@ namespace ConstructionTools.Api
                     .AllowAnyMethod()
                     .AllowAnyHeader();
             }));
+
+            #region ServiceRegisteration
             services.AddDbContext<ConstructionToolsDb>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<DbContext, ConstructionToolsDb>();
             services.AddTransient<IFeesCalculatorFactory, FeesCalculatorFactory>();
@@ -46,11 +49,12 @@ namespace ConstructionTools.Api
             services.AddTransient<IShoppingCartService, ShoppingCartService>();
             services.AddTransient<IConstructionToolsService, ConstructionToolsService>();
             services.AddTransient(typeof(IRepository<>), typeof(SqlRepository<>));
+            #endregion
+
             services.AddMemoryCache();
             services.AddLogging(config =>
             {
                 config.AddDebug();
-                config.AddConsole();
                 if (!Directory.Exists(Directory.GetCurrentDirectory() + "\\Logs"))
                     Directory.CreateDirectory(Directory.GetCurrentDirectory() + "\\Logs");
                 config.AddFile(o => o.RootPath = Directory.GetCurrentDirectory() + "\\Logs");
@@ -68,6 +72,13 @@ namespace ConstructionTools.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<DbContext>();
+                context.Database.EnsureCreated();
+            }
+
+            
 
             app.UseMvc();
 

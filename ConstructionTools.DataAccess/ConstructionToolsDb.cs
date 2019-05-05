@@ -1,9 +1,7 @@
-﻿using System;
-using ConstructionTools.Domain.Entities;
+﻿using ConstructionTools.Domain.Entities;
 using ConstructionTools.Domain.Enums;
-using ConstructionTools.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+using System;
 
 
 namespace ConstructionTools.DataAccess
@@ -41,7 +39,7 @@ namespace ConstructionTools.DataAccess
             };
             modelBuilder.Entity<Fee>().HasData(fees);
 
-            
+
             var tools = new[]
             {
                 new ConstructionTool() {ToolId=1,ToolName = "Caterpillar bulldozer", ToolCategory  = ToolCategory.HeavyTool},

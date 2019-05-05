@@ -15,7 +15,6 @@ namespace ConstructionTools.Repository.Concreate
         {
             _ctx = ctx;
             _entities = _ctx.Set<TEntity>();
-            _ctx.Database.EnsureCreated();
         }
 
         /// <summary>

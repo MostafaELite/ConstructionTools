@@ -11,11 +11,14 @@
                 debugger;
                 $scope.sum = $scope.shoppingCartItems.map((item) => $scope.sum += item.cost).sum();
                 console.log(response);
+
             });
 
         $scope.checkout = () => {
+            // call an api action to download the invoice
             location.href = urls.checkout;
-            window.reload();
+
+            setTimeout(() => { location.href = '/Index.html' }, 3000);
         }
     });
 

@@ -346,3 +346,4 @@ healthchecksdb
 
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
+/ConstructionTools.Api/Invoices/Invoice -$73c24008-fa9e-4f62-8c2c-e672b4ebb4ac.txt

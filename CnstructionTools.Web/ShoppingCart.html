@@ -30,11 +30,12 @@
 
             <div ng-repeat="item in shoppingCartItems" class="card text-white bg-dark">
                 <div class="card-header">
-                    {{item.tool.toolName}}
+                    {{item.toolName}}
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">{{shoppingCartResources.costOfRentingLabel}} {{item.numberOfRentingDays}} days</h5>
                     <p class="card-text"> {{item.cost}} Euros</p>
+
                     <button onclick="alert(`Not Implemented , it's a call to an Api action anyway :P`)" class="btn btn-danger">{{shoppingCartResources.remove}}</button>
                 </div>
             </div>
