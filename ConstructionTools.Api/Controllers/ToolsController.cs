@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Extensions.Logging;
 
 namespace ConstructionTools.Api.Controllers
 {
@@ -17,11 +18,13 @@ namespace ConstructionTools.Api.Controllers
     {
         private readonly IConstructionToolsService _toolsService;
         private readonly IMemoryCache _cache;
+        private readonly ILogger<ToolsController> _logger;
 
-        public ToolsController(IConstructionToolsService toolsService, IMemoryCache memoryCache)
+        public ToolsController(IConstructionToolsService toolsService, IMemoryCache memoryCache,ILogger<ToolsController> logger)
         {
             _toolsService = toolsService;
             _cache = memoryCache;
+            _logger = logger;
         }
 
 
@@ -41,8 +44,17 @@ namespace ConstructionTools.Api.Controllers
         [HttpGet("CalculateFees/{toolId}/{numberOfRentingDays}")]
         public ActionResult<double> CalculateFees(int toolId, int numberOfRentingDays)
         {
-            return _toolsService.CalculateFees(toolId, numberOfRentingDays);
-
+            try
+            {
+                _logger.LogInformation("Calculating Fees For Item : " + toolId);
+                return _toolsService.CalculateFees(toolId, numberOfRentingDays); 
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e,e.Message);
+                throw;
+            }
+         
         }
     }
 

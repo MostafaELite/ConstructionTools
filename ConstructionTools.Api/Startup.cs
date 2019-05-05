@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System.IO;
 
 namespace ConstructionTools.Api
 {
@@ -35,10 +36,10 @@ namespace ConstructionTools.Api
             }));
             services.AddDbContext<ConstructionToolsDb>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<DbContext, ConstructionToolsDb>();
-            services.AddTransient<IFeesCalculatorFactory,FeesCalculatorFactory>();
-            services.AddTransient<IFeesCalculator ,SpecializedToolsFeesCalculator>();
-            services.AddTransient<IFeesCalculator ,HeavyToolsFeesCalculator>();
-            services.AddTransient<IFeesCalculator ,RegularToolsFeesCalculator>();
+            services.AddTransient<IFeesCalculatorFactory, FeesCalculatorFactory>();
+            services.AddTransient<IFeesCalculator, SpecializedToolsFeesCalculator>();
+            services.AddTransient<IFeesCalculator, HeavyToolsFeesCalculator>();
+            services.AddTransient<IFeesCalculator, RegularToolsFeesCalculator>();
             services.AddTransient<SpecializedToolsFeesCalculator>();
             services.AddTransient<HeavyToolsFeesCalculator>();
             services.AddTransient<RegularToolsFeesCalculator>();
@@ -50,6 +51,10 @@ namespace ConstructionTools.Api
             {
                 config.AddDebug();
                 config.AddConsole();
+                if (!Directory.Exists(Directory.GetCurrentDirectory() + "\\Logs"))
+                    Directory.CreateDirectory(Directory.GetCurrentDirectory() + "\\Logs");
+                config.AddFile(o => o.RootPath = Directory.GetCurrentDirectory() + "\\Logs");
+
 
             });
 
