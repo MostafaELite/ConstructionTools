@@ -8,5 +8,6 @@
     pageTitle: 'Index',
     rent: 'Rent',
     feesInfoMessage: (cost) => `The total rent cost will be ${cost} euros <br/> Click Rent to add it to your shopping cart`,
-    shoppingCart: 'Shopping Cart'
+    shoppingCart: 'Shopping Cart',
+    itemAddedSuccessfuly:'Item added Successfully to you shopping cart'
 }

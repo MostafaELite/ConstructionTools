@@ -1,4 +1,5 @@
 ﻿using ConstructionTools.Domain.Entities;
+using ConstructionTools.Domain.Interfaces;
 using ConstructionTools.Repository.Abstract;
 using ConstructionTools.Services.Abstract;
 using ConstructionTools.Services.Concreate.FeesCalculators;
@@ -12,9 +13,9 @@ namespace ConstructionTools.Services.Concreate
     public class ConstructionToolsService : IConstructionToolsService
     {
         private readonly IRepository<ConstructionTool> _toolsRepo;
-        private readonly FeesCalculatorFactory _feesCalculator;
+        private readonly IFeesCalculatorFactory _feesCalculator;
 
-        public ConstructionToolsService(IRepository<ConstructionTool> toolsRepo, FeesCalculatorFactory feesCalculator)
+        public ConstructionToolsService(IRepository<ConstructionTool> toolsRepo, IFeesCalculatorFactory feesCalculator)
         {
             _toolsRepo = toolsRepo;
             _feesCalculator = feesCalculator;

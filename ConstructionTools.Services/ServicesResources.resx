@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="InvoiceRowTemplate" xml:space="preserve">
+    <value>    {0}                                                             {1}                                            {2}                      </value>
+  </data>
   <data name="InvoiceTemplate" xml:space="preserve">
     <value>                                                              Consturcion Tools Renting Invoice
                                                            ------------------------------------------
@@ -126,7 +129,8 @@
 
   </value>
   </data>
-  <data name="RowTemplate" xml:space="preserve">
-    <value>    {0}                                                             {1}                                            {2}                      </value>
+  <data name="LoyaltyPointMessage" xml:space="preserve">
+    <value>Congratulations ! 
+You have earned {0} loyalty poinst , which you can do nothing at all with it</value>
   </data>
 </root>

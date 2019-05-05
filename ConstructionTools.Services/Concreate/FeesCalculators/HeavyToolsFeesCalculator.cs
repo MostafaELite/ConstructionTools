@@ -1,7 +1,7 @@
 ﻿using ConstructionTools.Domain.Entities;
 using ConstructionTools.Domain.Enums;
+using ConstructionTools.Domain.Interfaces;
 using ConstructionTools.Repository.Abstract;
-using ConstructionTools.Services.Abstract;
 using System.Linq;
 
 namespace ConstructionTools.Services.Concreate.FeesCalculators
@@ -14,6 +14,8 @@ namespace ConstructionTools.Services.Concreate.FeesCalculators
         {
             _feesRepo = feesRepo;
         }
+
+        public byte RewardingLoyaltyPoint => 2;
 
         public double Calculate(int numberOfRentingDays)
         {

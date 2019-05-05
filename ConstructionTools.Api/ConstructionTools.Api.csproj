@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Invoices\**" />
+    <Content Remove="Invoices\**" />
+    <EmbeddedResource Remove="Invoices\**" />
+    <None Remove="Invoices\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
   </ItemGroup>
@@ -13,10 +20,6 @@
   <ItemGroup>
     <ProjectReference Include="..\ConstructionTools.DataAccess\ConstructionTools.DataAccess.csproj" />
     <ProjectReference Include="..\ConstructionTools.Services\ConstructionTools.Services.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Invoices\" />
   </ItemGroup>
 
 </Project>

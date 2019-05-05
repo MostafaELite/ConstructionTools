@@ -1,9 +1,9 @@
-﻿using System;
-using System.Linq;
-using System.Linq.Expressions;
-using ConstructionTools.Repository.Abstract;
+﻿using ConstructionTools.Repository.Abstract;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace ConstructionTools.Repository.Concreate
 {
@@ -54,8 +54,7 @@ namespace ConstructionTools.Repository.Concreate
         /// Save pending changes (add , update , delete)
         /// </summary>
         /// <returns>a boolean indicating in case the operation performed any change to the database records (added new record , deleted or updated existing one )</returns>
-        public bool SaveChanges() =>
-           _ctx.SaveChanges() > 1;
+        public bool SaveChanges() => _ctx.SaveChanges() > 0;
 
         /// <summary>
         /// Returns the same object after being attached to the context and ready for further operations (mostly used in updating existing records)

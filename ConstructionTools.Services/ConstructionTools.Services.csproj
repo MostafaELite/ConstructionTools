@@ -8,6 +8,7 @@
     <ProjectReference Include="..\ConstructionTools.DataAccess\ConstructionTools.DataAccess.csproj" />
     <ProjectReference Include="..\ConstructionTools.Domain\ConstructionTools.Domain.csproj" />
     <ProjectReference Include="..\ConstructionTools.Repository\ConstructionTools.Repository.csproj" />
+    <ProjectReference Include="..\ConstructionTools.ViewModels\ConstructionTools.ViewModels.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -15,7 +15,7 @@
 
         $scope.checkout = () => {
             location.href = urls.checkout;
-
+            window.reload();
         }
     });
 

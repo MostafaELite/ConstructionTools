@@ -1,15 +1,20 @@
-﻿using ConstructionTools.Domain.Entities;
+﻿using System;
+using ConstructionTools.Domain.Entities;
 using ConstructionTools.Domain.Enums;
+using ConstructionTools.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 
 namespace ConstructionTools.DataAccess
 {
     public class ConstructionToolsDb : DbContext
     {
-        public ConstructionToolsDb(DbContextOptions<ConstructionToolsDb> ctxOptions) : base(ctxOptions)
-        {
+        private readonly IServiceProvider _serviceProvider;
 
+        public ConstructionToolsDb(DbContextOptions<ConstructionToolsDb> ctxOptions, IServiceProvider serviceProvider) : base(ctxOptions)
+        {
+            _serviceProvider = serviceProvider;
         }
         public DbSet<ConstructionTool> ConstructionTools { get; set; }
         public DbSet<Fee> Fees { get; set; }
@@ -26,6 +31,7 @@ namespace ConstructionTools.DataAccess
         {
             EntityConfiguration.ConfigureConstructionTools(modelBuilder);
             EntityConfiguration.ConfigureFees(modelBuilder);
+            EntityConfiguration.ConfigureShoppingCartItem(modelBuilder);
 
             var fees = new[]
             {
@@ -35,6 +41,7 @@ namespace ConstructionTools.DataAccess
             };
             modelBuilder.Entity<Fee>().HasData(fees);
 
+            
             var tools = new[]
             {
                 new ConstructionTool() {ToolId=1,ToolName = "Caterpillar bulldozer", ToolCategory  = ToolCategory.HeavyTool},

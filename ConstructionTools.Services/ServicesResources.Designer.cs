@@ -61,6 +61,15 @@ namespace ConstructionTools.Services {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to     {0}                                                             {1}                                            {2}                      .
+        /// </summary>
+        internal static string InvoiceRowTemplate {
+            get {
+                return ResourceManager.GetString("InvoiceRowTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to                                                               Consturcion Tools Renting Invoice
         ///                                                           ------------------------------------------
         /// 
@@ -76,11 +85,12 @@ namespace ConstructionTools.Services {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to     {0}                                                             {1}                                            {2}                      .
+        ///   Looks up a localized string similar to Congratulations ! 
+        ///You have earned {0} loyalty poinst , which you can do nothing at all with it.
         /// </summary>
-        internal static string RowTemplate {
+        internal static string LoyaltyPointMessage {
             get {
-                return ResourceManager.GetString("RowTemplate", resourceCulture);
+                return ResourceManager.GetString("LoyaltyPointMessage", resourceCulture);
             }
         }
     }

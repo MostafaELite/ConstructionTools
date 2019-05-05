@@ -20,7 +20,14 @@ namespace ConstructionTools.DataAccess
 
             modelBuilder.Entity<ConstructionTool>()
                 .Property(tool => tool.ToolId).ValueGeneratedOnAdd();
-             
+
+
+            modelBuilder.Entity<ConstructionTool>()
+                .Ignore(tool => tool.FeesCalculator);
+
+            modelBuilder.Entity<ConstructionTool>()
+                .Ignore(tool => tool.FeesCalculatorFactory);
+
             modelBuilder.Entity<ConstructionTool>()
                 .Property(tool => tool.ToolName)
                 .IsRequired();
@@ -37,6 +44,8 @@ namespace ConstructionTools.DataAccess
             modelBuilder.Entity<Fee>()
                 .Property(fee => fee.FeeValue)
                 .IsRequired();
+
+            
         }
         public static void ConfigureShoppingCartItem(ModelBuilder modelBuilder)
         {
@@ -46,19 +55,13 @@ namespace ConstructionTools.DataAccess
             modelBuilder.Entity<ShoppingCartItem>()
                 .Property(shoppingCartItem => shoppingCartItem.NumberOfRentingDays)
                 .IsRequired();
-
-            modelBuilder.Entity<ShoppingCartItem>()
-                .Property(shoppingCartItem => shoppingCartItem.Cost)
-                .IsRequired();
+          
 
             modelBuilder.Entity<ShoppingCartItem>()
                 .Property(shoppingCartItem => shoppingCartItem.ToolId)
                 .IsRequired();
 
-            modelBuilder.Entity<ShoppingCartItem>()
-                .HasOne<ConstructionTool>()
-                .WithMany()
-                .HasForeignKey("ToolId");
+         
 
 
 

@@ -1,4 +1,5 @@
 ﻿using ConstructionTools.DataAccess;
+using ConstructionTools.Domain.Interfaces;
 using ConstructionTools.Repository.Abstract;
 using ConstructionTools.Repository.Concreate;
 using ConstructionTools.Services.Abstract;
@@ -34,7 +35,10 @@ namespace ConstructionTools.Api
             }));
             services.AddDbContext<ConstructionToolsDb>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<DbContext, ConstructionToolsDb>();
-            services.AddTransient<FeesCalculatorFactory>();
+            services.AddTransient<IFeesCalculatorFactory,FeesCalculatorFactory>();
+            services.AddTransient<IFeesCalculator ,SpecializedToolsFeesCalculator>();
+            services.AddTransient<IFeesCalculator ,HeavyToolsFeesCalculator>();
+            services.AddTransient<IFeesCalculator ,RegularToolsFeesCalculator>();
             services.AddTransient<SpecializedToolsFeesCalculator>();
             services.AddTransient<HeavyToolsFeesCalculator>();
             services.AddTransient<RegularToolsFeesCalculator>();
@@ -46,7 +50,7 @@ namespace ConstructionTools.Api
             {
                 config.AddDebug();
                 config.AddConsole();
-              
+
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

@@ -44,9 +44,10 @@
                 if (result.value.length === 2 && result.value[1] == true)
                     $http.post(urls.addNewSoppingCartItem + `${toolId}/${rentingDays}`)
                         .then((response) => {
-                            response == true ? Swal.fire('Done!', 'Item Added Successfully', 'success') : Swal.fire('Error!', 'Error adding your item , please try again later', 'error')
-                                
-                
+                            response.data == true
+                                ? Swal.fire('Done!', indexResources.itemAddedSuccessfuly, 'success')
+                                : Swal.fire('Error!', 'Error adding your item , please try again later', 'error');
+
                         });
 
             });
