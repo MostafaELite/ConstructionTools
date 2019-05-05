@@ -55,12 +55,12 @@ This Project Consists of Two Parts : <br/>
 
   <tr>
   <td>Logging</td>
-  <td>Achived Via Microsoft.Extensions.ILogger in the checkout , since it's not a real porject only one time is sufficient as a POC</td>
+  <td>Achived Via Microsoft.Extensions.ILogger in the checkout and rent cost calculater actions</td>
 </tr>
 
   <tr>
   <td>Decent-looking UI</td>
-  <td>it's not the best but it's not bad at all</td>
+  <td>it's not the best but it's not bad </td>
 </tr>
   <tr>
   <td>Caching</td>
@@ -69,7 +69,7 @@ This Project Consists of Two Parts : <br/>
   
 <tr>
   <td>Class and interaction diagrams</td>
-  <td>Create a Class Diagram for Fee Calculators , didn't have any tools to create interaction diagrams</td>
+  <td>Create a Class Diagram for Fee Calculators inside the Services solution , didn't have any tools to create interaction diagrams</td>
 </tr>
 
 </table>
